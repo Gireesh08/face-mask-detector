@@ -44,6 +44,7 @@ def process_image(img):
             (x1, y1, x2, y2) = box.astype("int")
 
             face_crop = img[y1:y2, x1:x2]
+            face_crop = cv2.cvtColor(face_crop, cv2.COLOR_BGR2RGB)
             face_resized = cv2.resize(face_crop, (224, 224))
             face_array = face_resized.astype("float32")
             face_array = preprocess_input(face_array)
